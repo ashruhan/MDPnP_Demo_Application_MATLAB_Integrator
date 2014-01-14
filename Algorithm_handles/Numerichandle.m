@@ -67,16 +67,16 @@ if (~isempty(NumSampl))
             assignin('base','PULSE_OXIM_SAT_02',PULSE_OXIM_SAT_02)
         end
         
-        %MDC_PULS_RATE: Heart Rate numeric data
-        if strcmp(NumSampl(1,m).metric_id,'MDC_PULS_RATE')
-            HR = evalin('base','HR');
-            limits.upper = 100;limits.lower = 20;
-            [HR] = GetDateTime(HR,NumSampl(1,m).value);
-            [Dstatus] = differentialData(HR);
-            [Lstatus] = testLim(HR,limits);
-            aXString = strcat('HR=',num2str(HR.data(1,length(HR.data))));
-            set(S.HR,'str',{aXString},'ForegroundColor','green');
-            assignin('base','HR',HR)  
-        end      
+%         %MDC_PULS_RATE: Heart Rate numeric data
+%         if strcmp(NumSampl(1,m).metric_id,'MDC_PULS_RATE')
+%             HR = evalin('base','HR');
+%             limits.upper = 100;limits.lower = 20;
+%             [HR] = GetDateTime(HR,NumSampl(1,m).value);
+%             [Dstatus] = differentialData(HR);
+%             [Lstatus] = testLim(HR,limits);
+%             aXString = strcat('HR=',num2str(HR.data(1,length(HR.data))));
+%             set(S.HR,'str',{aXString},'ForegroundColor','green');
+%             assignin('base','HR',HR)  
+%         end      
     end
 end
