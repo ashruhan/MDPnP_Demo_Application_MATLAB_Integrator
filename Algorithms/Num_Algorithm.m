@@ -41,25 +41,7 @@ classdef Num_Algorithm
             obj.time(1,length(obj.time)) = time2;
             RESP = obj;
         end
-        
-        function [diffstatus] = differentialData(obj)
-            if length(obj.data) == length(obj.time)
-                diffstatus = 'clear';
-                numzr = nnz(obj.data);
-                startp = length(obj.data) + 1 - numzr;
-                if startp < (length(obj.data)-2)
-                    [dx] = gradient(obj.data(1,startp:end));
-                    
-                    for m = startp:length(dx)
-                        if abs(dx(m)) > 2
-                            diffstatus = 'warning';
-                            return
-                        end
-                    end
-                end
-            end
-        end
-        
+
         function limstatus = testLim(obj,limits)
             if length(obj.data) == length(obj.time)
                 limstatus = 'clear';

@@ -13,7 +13,7 @@ initialize;
 %publishers
 dp_profile = 'UDPv4TransportLibrary::DefaultProfile';
 %dp is the domain particicant with profile dp_profile on domain zero
-dp = DDS.DomainParticipant(dp_profile, 0);
+dp = DDS.DomainParticipant(dp_profile, 15);
 %dp.addReader creates a reader with a topic and type with the profile
 %dp_profile\ dp.Subscribers(1).Readers(.....) the order in wich you create
 %the reader is the number associted with the reader ....Example is

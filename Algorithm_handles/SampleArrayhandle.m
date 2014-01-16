@@ -22,7 +22,7 @@ if (~isempty(Sample))
     for m = 1:length(Sample)
         
         %MDC_PULS_OXIM_PLETH: pleth waveform
-        if strcmp(Sample(1,m).metric_id,'MDC_PULS_OXIM_PLETH')
+        if strcmp(Sample(1,m).metric_id,'MDC_PULS_OXIM_PLETH')&&strcmp(Sample(1,m).unique_device_identifier,'JgREBYpT9q1SMvdV9nvt8rJU6n4FhERrJINV')
             PLETH = evalin('base','PLETH');
             PLETH = Getdatatime(PLETH,Sample(1,m));
             set(S.PLETH,'YData',PLETH.data);
@@ -30,7 +30,7 @@ if (~isempty(Sample))
         end
         
         %MDC_CAPNOGRAPH: Respitory Rate waveform
-        if strcmp(Sample(1,m).metric_id,'MDC_CAPNOGRAPH')
+        if strcmp(Sample(1,m).metric_id,'MDC_CAPNOGRAPH')&&strcmp(Sample(1,m).unique_device_identifier,'sjgTVdaNtNtKXGp3Zoy1leVqhr9bAythBB7e')
             CAPNOGRAPH = evalin('base','CAPNOGRAPH');
             CAPNOGRAPH = Getdatatime(CAPNOGRAPH,Sample(1,m));
             set(S.CAPNOGRAPH,'YData',CAPNOGRAPH.data);
@@ -38,7 +38,7 @@ if (~isempty(Sample))
         end
         
         %MDC_ECG_AMPL_ST_I: ECG lead number one waveform
-        if strcmp(Sample(1,m).metric_id,'MDC_ECG_AMPL_ST_I')
+        if strcmp(Sample(1,m).metric_id,'MDC_ECG_AMPL_ST_I')&&strcmp(Sample(1,m).unique_device_identifier,'JgREBYpT9q1SMvdV9nvt8rJU6n4FhERrJINV')
             ST_I = evalin('base','ST_I');
             ST_I = Getdatatime(ST_I,Sample(1,m));
             set(S.ST_I,'YData',ST_I.data);
@@ -46,14 +46,14 @@ if (~isempty(Sample))
         end
         
         %MDC_ECG_AMPL_ST_II: ECG lead number two waveform
-        if strcmp(Sample(1,m).metric_id,'MDC_ECG_AMPL_ST_II')
+        if strcmp(Sample(1,m).metric_id,'MDC_ECG_AMPL_ST_II')&&strcmp(Sample(1,m).unique_device_identifier,'JgREBYpT9q1SMvdV9nvt8rJU6n4FhERrJINV')
             ST_II = evalin('base','ST_II');
             ST_II = Getdatatime(ST_II,Sample(1,m));
             set(S.ST_II,'YData',ST_II.data);
             assignin('base','ST_II',ST_II);
         end
         %MDC_ECG_AMPL_ST_III: ECG lead number three waveform
-        if strcmp(Sample(1,m).metric_id,'MDC_ECG_AMPL_ST_III')
+        if strcmp(Sample(1,m).metric_id,'MDC_ECG_AMPL_ST_III')&&strcmp(Sample(1,m).unique_device_identifier,'JgREBYpT9q1SMvdV9nvt8rJU6n4FhERrJINV')
             ST_III = evalin('base','ST_III');
             ST_III = Getdatatime(ST_III,Sample(1,m));
             set(S.ST_III,'YData',ST_III.data);

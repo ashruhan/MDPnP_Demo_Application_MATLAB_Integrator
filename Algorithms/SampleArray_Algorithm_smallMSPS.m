@@ -13,23 +13,26 @@ classdef SampleArray_Algorithm_smallMSPS
         
         unique_device_identifier =  char(zeros(1,64)); %@key
         millisecondsPerSample = int32(0);
-        data = ones(1,2050);
-        time = zeros(1,2050);
+        data = ones(1,5120);%2050 is for simulation
+        time = zeros(1,5120);%2050 is for simulation
         seqPos = double(1);
-        endPos = double(205);
+        endPos = double(40);%205 is for simulation
     end
     methods
         function Retobj = Getdatatime(obj,Refobj)
             c = nnz(Refobj.values);
-            if ~isequal(obj.seqPos,obj.endPos)&&(c>=1)
-                obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
-                obj.seqPos = obj.seqPos+1;
-            else
-                obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
-                obj.seqPos = 1;
+            if isequal(c,128)
+                if ~isequal(obj.seqPos,obj.endPos)
+                    obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
+                    obj.seqPos = obj.seqPos+1;
+                end
+                if isequal(obj.seqPos,obj.endPos)
+                    obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
+                    obj.seqPos = 1;
+                end
             end
             Retobj = obj;
-        end 
+        end
     end
 end
 

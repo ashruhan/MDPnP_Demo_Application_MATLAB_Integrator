@@ -13,20 +13,23 @@ classdef SampleArray_Algorithm_LargeMSPS
         
         unique_device_identifier =  char(zeros(1,64)); %@key
         millisecondsPerSample = int32(0);
-        data = ones(1,1050);
-        time = zeros(1,1050);
+        data = ones(1,1280);%1050 for simulation
+        time = zeros(1,1280);%1050 for simulation
         seqPos = double(1);
-        endPos = double(14);
+        endPos = double(40);%14 for simulation
     end
     methods
         function Retobj = Getdatatime(obj,Refobj)
             c = nnz(Refobj.values);
-            if ~isequal(obj.seqPos,obj.endPos)&&(c>=1)
-                obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
-                obj.seqPos = obj.seqPos+1;
-            else
-                obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
-                obj.seqPos = 1;
+            if c>0
+                if ~isequal(obj.seqPos,obj.endPos)
+                    obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
+                    obj.seqPos = obj.seqPos+1;
+                end
+                if isequal(obj.seqPos,obj.endPos)
+                    obj.data(c*obj.seqPos-(c-1):c*obj.seqPos) = Refobj.values(1:c);
+                    obj.seqPos = 1;
+                end
             end
             Retobj = obj;
         end
