@@ -13,7 +13,7 @@ function Numerichandle(~,~,dp)
 % Make sure NumSampl is not  empty
 if (~isempty(NumSampl))
     %S is refering to the GUI handles if usable data is found the S is
-    %updated    
+    %updated
     S = evalin('base','S');
     for m = 1:length(NumSampl)
         
@@ -40,10 +40,10 @@ if (~isempty(NumSampl))
         end
         
         %MDC_PULS_OXIM_PULS_RATE: pulse rate numeric data
-        if strcmp(NumSampl(1,m).metric_id,'MDC_PULS_OXIM_PULS_RATE')&&strcmp(NumSampl(1,m).unique_device_identifier,'JgREBYpT9q1SMvdV9nvt8rJU6n4FhERrJINV')          
+        if strcmp(NumSampl(1,m).metric_id,'MDC_PULS_OXIM_PULS_RATE')&&strcmp(NumSampl(1,m).unique_device_identifier,'JgREBYpT9q1SMvdV9nvt8rJU6n4FhERrJINV')
             PULSE_OXIM_PULSE_RATE = evalin('base','PULSE_OXIM_PULSE_RATE');
             limits.upper = 70;limits.lower = 20;
-            [PULSE_OXIM_PULSE_RATE] = GetDateTime(PULSE_OXIM_PULSE_RATE,NumSampl(1,m).value);          
+            [PULSE_OXIM_PULSE_RATE] = GetDateTime(PULSE_OXIM_PULSE_RATE,NumSampl(1,m).value);
             [Lstatus] = testLim(PULSE_OXIM_PULSE_RATE,limits);
             aXString = strcat('PULSE=',num2str(PULSE_OXIM_PULSE_RATE.data(1,length(PULSE_OXIM_PULSE_RATE.data))));
             set(S.PULSE_RATE,'str',{aXString},'ForegroundColor','green');
@@ -59,22 +59,22 @@ if (~isempty(NumSampl))
             aXString = strcat('SPO2=',num2str(PULSE_OXIM_SAT_02.data(1,length(PULSE_OXIM_SAT_02.data))));
             set(S.SAT_02,'str',{aXString},'ForegroundColor','green');
             assignin('base','PULSE_OXIM_SAT_02',PULSE_OXIM_SAT_02)
-<<<<<<< HEAD
+            % <<r<<<<< HEAD
         end
         
-%         %MDC_PULS_RATE: Heart Rate numeric data
-%         if strcmp(NumSampl(1,m).metric_id,'MDC_PULS_RATE')
-%             HR = evalin('base','HR');
-%             limits.upper = 100;limits.lower = 20;
-%             [HR] = GetDateTime(HR,NumSampl(1,m).value);
-%             [Dstatus] = differentialData(HR);
-%             [Lstatus] = testLim(HR,limits);
-%             aXString = strcat('HR=',num2str(HR.data(1,length(HR.data))));
-%             set(S.HR,'str',{aXString},'ForegroundColor','green');
-%             assignin('base','HR',HR)  
-%         end      
-=======
-        end      
->>>>>>> Working with Live Devices
+        %         %MDC_PULS_RATE: Heart Rate numeric data
+        %         if strcmp(NumSampl(1,m).metric_id,'MDC_PULS_RATE')
+        %             HR = evalin('base','HR');
+        %             limits.upper = 100;limits.lower = 20;
+        %             [HR] = GetDateTime(HR,NumSampl(1,m).value);
+        %             [Dstatus] = differentialData(HR);
+        %             [Lstatus] = testLim(HR,limits);
+        %             aXString = strcat('HR=',num2str(HR.data(1,length(HR.data))));
+        %             set(S.HR,'str',{aXString},'ForegroundColor','green');
+        %             assignin('base','HR',HR)
+        %         end
+        % =======
     end
+    % >>>>>>> Working with Live Devices
+end
 end

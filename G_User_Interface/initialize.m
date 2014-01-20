@@ -12,10 +12,9 @@ assignin('base','ST_I',ST_I);
 assignin('base','ST_III',ST_III);
 assignin('base','CAPNOGRAPH',CAPNOGRAPH)
 
-<<<<<<< HEAD
 % HR = Num_Algorithm;
-=======
->>>>>>> Working with Live Devices
+% =======
+% >>>>>>> Working with Live Devices
 RESP_RATE = Num_Algorithm;
 CO2_EXP = Num_Algorithm;
 PULSE_OXIM_PULSE_RATE = Num_Algorithm;
@@ -24,11 +23,11 @@ assignin('base','RESP_RATE',RESP_RATE)
 assignin('base','CO2_EXP',CO2_EXP)
 assignin('base','PULSE_OXIM_PULSE_RATE',PULSE_OXIM_PULSE_RATE)
 assignin('base','PULSE_OXIM_SAT_02',PULSE_OXIM_SAT_02)
-<<<<<<< HEAD
+% <<<<<<< HEAD
 % assignin('base','HR',HR)
 
-=======
->>>>>>> Working with Live Devices
+% =======
+% >>>>>>> Working with Live Devices
 
 % Matlab Gui building much like other software is tedious and time consuming
 % the code below initiates teh Gui layout which can be refreshed in
@@ -42,7 +41,7 @@ S.fh(1) = figure('units','pixels',...
     'resize','off');
 S.SAT_02 = uicontrol('style','text',...
     'unit','pix',...
-    'position',[810 430 350 55],...
+    'position',[850 430 240 55],...
     'ForegroundColor','green',...
     'backgroundColor','black','fontsize',40,'HorizontalAlignment','center',...
     'string','SPO2=00');
@@ -65,7 +64,7 @@ S.RESP = uicontrol('style','text',...
     'fontsize',40,'HorizontalAlignment','center',...
     'string','RR=00');
 
-<<<<<<< HEAD
+% <<<<<<< HEAD
 % S.HR = uicontrol('style','text',...
 %     'unit','pix',...
 %     'position',[810 130 350 55],...
@@ -73,8 +72,8 @@ S.RESP = uicontrol('style','text',...
 %     'fontsize',40,'HorizontalAlignment','center',...
 %     'string','HR=00');
 
-=======
->>>>>>> Working with Live Devices
+% =======
+% >>>>>>> Working with Live Devices
 axes('position',[.01 .780 .650 .200]);
 S.PLETH = plot(PLETH.data);
 axis('fill');
